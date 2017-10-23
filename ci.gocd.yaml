@@ -1,0 +1,18 @@
+#ci.gocd.yaml
+pipelines:
+  demo_app:
+    group: demo_app
+    materials:
+      demo_app:
+        auto_update: true
+        destination: demo_app
+        git: 'ssh://git@github.com:tomstockton/docker-test-app.git'
+
+    stages:
+      - compile: # name of stage
+          clean_workspace: true
+          # build to docker, push to the docker repo, then clean up
+          tasks:
+            - exec:
+                command: './build-docker.sh'
+                working_directory: demo_app/build

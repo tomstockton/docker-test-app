@@ -6,7 +6,7 @@ pipelines:
       demo_app:
         auto_update: true
         destination: demo_app
-        git: 'ssh://git@github.com:tomstockton/docker-test-app.git'
+        git: 'ssh://git@github.com/tomstockton/docker-test-app.git'
 
     stages:
       - compile: # name of stage
